@@ -14,13 +14,15 @@ $db = $database->getConnection();
 $task = new Task($db);
 
 if ($_POST) {
-    $task->title = $_POST['title'];
-    $task->description = $_POST['description'];
+  $task->title = $_POST['title'];
+  $task->description = $_POST['description'];
+  $task->user_id = $_SESSION['user_id']; // Mengasumsikan user_id tersimpan di session saat login
 
-    if ($task->create()) {
-        echo "<script>alert('Task added successfully.'); window.location.href='dashboard.php';</script>";
-    } else {
-        echo "<script>alert('Unable to add task.'); window.location.href='dashboard.php';</script>";
-    }
+  if ($task->create()) {
+      echo "<script>alert('Task added successfully.'); window.location.href='dashboard.php';</script>";
+  } else {
+      echo "<script>alert('Unable to add task.'); window.location.href='dashboard.php';</script>";
+  }
 }
+
 ?>
