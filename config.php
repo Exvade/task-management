@@ -1,9 +1,9 @@
 <?php
 class Database {
   private $host = "localhost";
-  private $db_name = "nama_database";
-  private $username = "username_db";
-  private $password = "password_db";
+  private $db_name = "task_management";
+  private $username = "root";
+  private $password = "";
   public $conn;
 
   public function getConnection() {
