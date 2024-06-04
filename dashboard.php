@@ -30,7 +30,7 @@ $num = $stmt->rowCount();
   <div class="w-[600px] bg-red-400 mt-20">
 
     <?php
-    echo "<h2 class='text-2xl'>Your Tasks</h2>";
+    echo "<h2 class='text-2xl bg-white'>Your Tasks</h2>";
     if ($num > 0) {
       echo "<ol>";  // Menggunakan ordered list untuk menampilkan tasks
       $counter = 1; // Variabel untuk nomor urut
