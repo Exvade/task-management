@@ -32,8 +32,8 @@ $num = $stmt->rowCount();
     <?php
     echo "<h2 class='text-2xl bg-white'>Your Tasks</h2>";
     if ($num > 0) {
-      echo "<ol>";  // Menggunakan ordered list untuk menampilkan tasks
-      $counter = 1; // Variabel untuk nomor urut
+      echo "<ol>";   
+      $counter = 1;
       while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         echo "<li>";
