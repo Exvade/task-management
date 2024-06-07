@@ -52,13 +52,13 @@ $num = $stmt->rowCount();
         echo "<div class='hidden'>" . ($id !== null ? $id : '') . "</div>";
         echo "<div class='w-[200px]'>" . ($title !== null ? $title : '') . "</div>";
         echo "<div class='w-[300px]'>" . ($description !== null ? $description : '') . "</div>";
-        echo "<div class='flex gap-2'><a href='edit_task.php?id={$id}' class='w-[100px] h-[40px] text-black bg-yellow-500 text-center flex items-center justify-center'>Edit</a><a href='delete_task.php?id={$id}' class='w-[100px] h-[40px] bg-red-500 text-center flex items-center justify-center'>Delete</a></div>";
+        echo "<div class='flex gap-2'><a href='edit_task.php?id={$id}' class='w-[100px] h-[40px] text-black bg-yellow-500 rounded-md text-center flex items-center justify-center'>Edit</a><a href='delete_task.php?id={$id}' class='w-[100px] h-[40px] bg-red-500 text-center flex items-center justify-center rounded-md'>Delete</a></div>";
         echo "</li>";
         $counter++;  // Menambahkan counter setiap iterasi
       }
       echo "</ol>";
     } else {
-      echo "No tasks found.";
+      echo "<h3 class='w-full py-4 text-2xl font-semibold text-center text-white bg-black bg-opacity-40'>No tasks found.</h3>";
     }
     ?>
 
@@ -72,7 +72,7 @@ $num = $stmt->rowCount();
     </div>
     <div class="mb-5">
       <label for="description" class="block mb-2 text-sm font-medium text-white dark:text-white">Description</label>
-      <input type="text" name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-wrap" placeholder="Playing with friends and with 'No Radiant No Sleep' Mentality" required />
+      <textarea name="description" id="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-wrap h-[70px]" placeholder="Playing with friends and with 'No Radiant No Sleep' Mentality" required></textarea>
     </div>
     <button type="submit" class="px-6 py-3 text-sm font-medium text-center text-white bg-blue-400 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 sm:w-auto">Add</button>
   </form>
