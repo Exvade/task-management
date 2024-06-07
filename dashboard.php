@@ -48,13 +48,13 @@ $num = $stmt->rowCount();
         extract($row);
         
         echo "<li class='flex justify-around gap-10 text-xl'>";
-        echo "<div class='w-4'><strong>$counter</strong></div>";  // Menampilkan nomor urut task
+        echo "<div class='w-4'><strong>$counter</strong></div>"; 
         echo "<div class='hidden'>" . ($id !== null ? $id : '') . "</div>";
         echo "<div class='w-[200px]'>" . ($title !== null ? $title : '') . "</div>";
         echo "<div class='w-[300px]'>" . ($description !== null ? $description : '') . "</div>";
         echo "<div class='flex gap-2'><a href='edit_task.php?id={$id}' class='w-[100px] h-[40px] text-black bg-yellow-500 rounded-md text-center flex items-center justify-center'>Edit</a><a href='delete_task.php?id={$id}' class='w-[100px] h-[40px] bg-red-500 text-center flex items-center justify-center rounded-md'>Delete</a></div>";
         echo "</li>";
-        $counter++;  // Menambahkan counter setiap iterasi
+        $counter++;
       }
       echo "</ol>";
     } else {

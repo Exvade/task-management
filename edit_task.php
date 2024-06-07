@@ -42,6 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Edit Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <a href="dashboard.php" style="float:right; margin-right:20px;">Back to Dashboard</a>
