@@ -4,10 +4,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header("Location: login.php");
     exit;
 }
-
-// Memastikan ID tugas disediakan
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: dashboard.php"); // Arahkan kembali ke dashboard jika ID tidak valid
+    header("Location: dashboard.php");
     exit;
 }
 
@@ -21,7 +19,6 @@ $task = new Task($db);
 $task->id = $_GET['id'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Mengupdate tugas
     $task->title = $_POST['title'];
     $task->description = $_POST['description'];
 
@@ -33,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p>Unable to update task. Please try again.</p>";
     }
 } else {
-    // Mengambil data tugas untuk diisi ke dalam formulir
     $task->readOne();
 }
 

@@ -13,7 +13,6 @@ class Task {
         $this->conn = $db;
     }
 
-    // Metode untuk membaca semua tugas
     public function read() {
       $query = "SELECT * FROM tasks WHERE user_id = :user_id";
       $stmt = $this->conn->prepare($query);
@@ -22,21 +21,16 @@ class Task {
       return $stmt;
   }
 
-    // Metode untuk menambah tugas baru
     public function create() {
-      // Menambahkan user_id dalam SQL query
       $query = "INSERT INTO " . $this->table_name . " (title, description, user_id) VALUES (:title, :description, :user_id)";
       $stmt = $this->conn->prepare($query);
-  
-      // Membersihkan data
+
       $this->title = htmlspecialchars(strip_tags($this->title));
       $this->description = htmlspecialchars(strip_tags($this->description));
-      $this->user_id = htmlspecialchars(strip_tags($this->user_id));  // Pastikan user_id juga dibersihkan
-  
-      // Mengikat data
+      $this->user_id = htmlspecialchars(strip_tags($this->user_id));  // 
       $stmt->bindParam(":title", $this->title);
       $stmt->bindParam(":description", $this->description);
-      $stmt->bindParam(":user_id", $this->user_id);  // Mengikat user_id ke query
+      $stmt->bindParam(":user_id", $this->user_id); 
   
       if($stmt->execute()) {
           return true;
@@ -45,7 +39,7 @@ class Task {
   }
   
 
-    // Metode untuk menghapus tugas
+
     public function delete() {
         $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
         $stmt = $this->conn->prepare($query);
@@ -78,12 +72,11 @@ class Task {
     
         $stmt = $this->conn->prepare($query);
     
-        // membersihkan data
+
         $this->title = htmlspecialchars(strip_tags($this->title));
         $this->description = htmlspecialchars(strip_tags($this->description));
         $this->id = htmlspecialchars(strip_tags($this->id));
     
-        // bind data
         $stmt->bindParam(':title', $this->title);
         $stmt->bindParam(':description', $this->description);
         $stmt->bindParam(':id', $this->id);

@@ -16,7 +16,7 @@ $task = new Task($db);
 if ($_POST) {
   $task->title = $_POST['title'];
   $task->description = $_POST['description'];
-  $task->user_id = $_SESSION['user_id']; // Mengasumsikan user_id tersimpan di session saat login
+  $task->user_id = $_SESSION['user_id'];
 
   if ($task->create()) {
       echo "<script>alert('Task added successfully.'); window.location.href='dashboard.php';</script>";

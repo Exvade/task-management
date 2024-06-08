@@ -18,7 +18,7 @@ class User {
   
       $this->username = htmlspecialchars(strip_tags($this->username));
       $this->password = htmlspecialchars(strip_tags($this->password));
-      $this->password = password_hash($this->password, PASSWORD_DEFAULT); // Hash password
+      $this->password = password_hash($this->password, PASSWORD_DEFAULT);
   
       $stmt->bindParam(':username', $this->username);
       $stmt->bindParam(':password', $this->password);
@@ -44,7 +44,7 @@ class User {
           $this->id = $row['id'];
           $this->username = $row['username'];
   
-          // Verifikasi password yang dimasukkan dengan yang terhash di database
+        
           if (password_verify($this->password, $row['password'])) {
               return true;
           }
